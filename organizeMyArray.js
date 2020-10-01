@@ -1,4 +1,9 @@
 function organizeMyArray(array, sort = 'ascending'){
+    for(let str = 0; str < array.length; str++){
+        if(isNaN(array[str])){
+            array.splice(str,1)
+        } 
+    }
     let oldArray = array
     let newArray = [];
     let controller = array.length;
@@ -35,6 +40,10 @@ function organizeMyArray(array, sort = 'ascending'){
                 break;
         
             default:
+                newArray.unshift(currentHighest)
+                oldArray.splice(currentHighestPosition,1)
+                currentHighestPosition = 0
+                currentHighest = 0
                 break;
         }      
     }
